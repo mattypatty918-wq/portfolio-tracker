@@ -567,3 +567,639 @@ body {
     padding: 0.75rem 0.5rem;
   }
 }
+/* Phase 2-9: Advanced Analytics, Portfolio Manager, Advanced Positions, Tax Reporting, Security */
+
+.advanced-analytics, .portfolio-manager, .advanced-positions, .tax-reporting, .security-settings {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.metrics-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.metric-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--text-dark);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.metric-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+.metric-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.allocations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.allocation-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.app.dark-mode .allocation-card {
+  background: #222;
+  border-color: #333;
+}
+
+.allocation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.allocation-header .symbol {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary);
+}
+
+.allocation-header .percent {
+  font-weight: 600;
+  color: var(--success);
+}
+
+.allocation-header .percent.warning {
+  color: var(--warning);
+}
+
+.allocation-bar {
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.app.dark-mode .allocation-bar {
+  background: #333;
+}
+
+.allocation-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--success));
+}
+
+.allocation-detail {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.risk-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.risk-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.app.dark-mode .risk-card {
+  background: #222;
+}
+
+.risk-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.risk-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.risk-value.high {
+  color: var(--error);
+}
+
+.risk-value.medium {
+  color: var(--warning);
+}
+
+.risk-value.low {
+  color: var(--success);
+}
+
+.risk-desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.wash-sales-warning {
+  background: rgba(250, 188, 4, 0.1);
+  border-left: 4px solid var(--warning);
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+}
+
+.rebalance-form, .allocation-input {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.allocation-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.allocation-input label {
+  font-weight: 600;
+  min-width: 60px;
+}
+
+.allocation-input input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.allocation-input span {
+  min-width: 20px;
+}
+
+.rebalance-suggestions {
+  margin-top: 2rem;
+}
+
+.suggestion-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid var(--primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app.dark-mode .suggestion-card {
+  background: #222;
+}
+
+.suggestion-card.buy {
+  border-left-color: var(--success);
+}
+
+.suggestion-card.sell {
+  border-left-color: var(--error);
+}
+
+.suggestion-card .symbol {
+  font-weight: 600;
+  flex: 1;
+}
+
+.suggestion-card .action {
+  font-weight: 700;
+  margin: 0 1rem;
+}
+
+.suggestion-card .detail {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Advanced Positions */
+.position-type-selector {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.type-btn {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.type-btn.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.advanced-form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.app.dark-mode .advanced-form {
+  background: #222;
+}
+
+.advanced-form input, .advanced-form select {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.positions-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.position-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.app.dark-mode .position-card {
+  background: #222;
+  border-color: #333;
+}
+
+.position-card.option-card {
+  border-left: 4px solid #9c27b0;
+}
+
+.position-card.crypto-card {
+  border-left: 4px solid #ff9800;
+}
+
+.position-card.bond-card {
+  border-left: 4px solid #2196f3;
+}
+
+.position-card.margin-card {
+  border-left: 4px solid #f44336;
+}
+
+.position-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.position-header .symbol {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.position-header .price, .position-header .type, .position-header .yield, .position-header .leverage {
+  font-weight: 600;
+}
+
+.position-details {
+  margin-bottom: 1rem;
+}
+
+.detail {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+}
+
+.greeks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.app.dark-mode .greeks {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.greek {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.staking-rewards, .bond-metrics {
+  background: rgba(52, 168, 83, 0.1);
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.reward, .metric {
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
+  font-weight: 500;
+}
+
+/* Tax Reporting */
+.tax-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tax-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  text-align: center;
+}
+
+.app.dark-mode .tax-card {
+  background: #222;
+}
+
+.tax-card.positive {
+  border-left-color: var(--success);
+}
+
+.tax-card.negative {
+  border-left-color: var(--error);
+}
+
+.tax-card .label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.tax-card .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.tax-card .desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+.report-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.report-btn {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.report-btn.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.report-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.app.dark-mode .report-content {
+  background: #222;
+}
+
+.schedule-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.section {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.dividend-total {
+  padding: 1rem;
+  background: rgba(52, 168, 83, 0.1);
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Security Settings */
+.security-settings {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.security-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.setting-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.app.dark-mode .setting-card {
+  background: #222;
+  border-color: #333;
+}
+
+.setting-card.warning {
+  border-left: 4px solid var(--warning);
+}
+
+.setting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.setting-form {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.setting-form select {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.setting-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btn-danger {
+  background: var(--error);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  opacity: 0.8;
+}
+
+.security-info {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  position: sticky;
+  top: 20px;
+}
+
+.app.dark-mode .security-info {
+  background: #222;
+  border-color: #333;
+}
+
+.security-info h4 {
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.security-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.security-info li {
+  padding: 0.5rem 0;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .security-settings {
+    grid-template-columns: 1fr;
+  }
+  
+  .security-info {
+    position: static;
+  }
+
+  .schedule-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .allocations-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .positions-list {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .advanced-analytics, .portfolio-manager, .advanced-positions, .tax-reporting, .security-settings {
+    padding: 1rem;
+  }
+
+  .advanced-form {
+    grid-template-columns: 1fr;
+  }
+
+  .positions-list {
+    grid-template-columns: 1fr;
+  }
+
+  .allocations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .tax-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-selector, .position-type-selector, .report-selector {
+    flex-direction: column;
+  }
+
+  .metric-btn, .type-btn, .report-btn {
+    width: 100%;
+  }
+
+  .setting-actions {
+    flex-direction: column;
+  }
+
+  .suggestion-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .suggestion-card .action {
+    margin: 0.5rem 0;
+  }
+}
