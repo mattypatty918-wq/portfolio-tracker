@@ -1,8 +1,18 @@
-export function Dashboard({ holdings }: { holdings: any[] }) {
+export function Dashboard({ holdings, transactions }: { holdings: any[], transactions: any[] }) {
   const totalValue = holdings.reduce((sum, h) => sum + (h.quantity * h.currentPrice), 0);
   const totalCost = holdings.reduce((sum, h) => sum + (h.quantity * h.avgCost), 0);
   const gainLoss = totalValue - totalCost;
   const gainLossPercent = totalCost > 0 ? (gainLoss / totalCost * 100).toFixed(2) : '0.00';
+
+  // Benchmark comparison (S&P 500 assumed +10% YTD)
+  const benchmarkReturn = 10;
+  const portfolioReturn = totalCost > 0 ? ((gainLoss / totalCost) * 100) : 0;
+
+  // Cash balance
+  const buys = transactions.filter((t: any) => t.type === 'buy').reduce((sum: number, t: any) => sum + (t.quantity * t.price), 0);
+  const sells = transactions.filter((t: any) => t.type === 'sell').reduce((sum: number, t: any) => sum + (t.quantity * t.price), 0);
+  const dividends = transactions.filter((t: any) => t.type === 'dividend').reduce((sum: number, t: any) => sum + (t.quantity * t.price), 0);
+  const cashBalance = sells + dividends - buys;
 
   const byAsset = holdings.reduce((acc: any, h: any) => {
     acc[h.assetType] = (acc[h.assetType] || 0) + (h.quantity * h.currentPrice);
@@ -28,6 +38,15 @@ export function Dashboard({ holdings }: { holdings: any[] }) {
         <div class="metric-card">
           <div class="metric-label">Positions</div>
           <div class="metric-value">{holdings.length}</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Cash Balance</div>
+          <div class="metric-value">${cashBalance.toFixed(2)}</div>
+        </div>
+        <div class={`metric-card ${portfolioReturn >= benchmarkReturn ? 'positive' : 'negative'}`}>
+          <div class="metric-label">vs S&P 500</div>
+          <div class="metric-value">{(portfolioReturn - benchmarkReturn).toFixed(2)}%</div>
+          <div class="metric-pct">Portfolio vs Benchmark</div>
         </div>
       </div>
 
